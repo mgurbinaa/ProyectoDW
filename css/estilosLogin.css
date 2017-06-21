@@ -1,0 +1,72 @@
+	#msj-error{
+		width: 90%;
+		margin-left: 5%;
+		background: red;
+		color: white;
+		border-radius: 5px;
+		margin-top: -60px;
+		opacity: 0;
+		visibility: hidden;
+		transition: .3s all;
+	}
+
+	.ver{
+		opacity: 1 !important;
+		visibility: visible !important;
+		margin-top: 10px !important;
+	}
+
+	*{
+		margin: 0;
+		padding: 0;
+	}
+
+	body{
+		background: #F14A52;
+	}
+
+	.contenedor{
+		background: white;
+		border-radius: 10px;
+		width: 500px;
+		height: 300px;
+		float: left;
+		margin-left: calc(50% - 200px);
+		margin-top: 100px;
+	}
+
+	.contenedor>input{
+		float: left;
+		width: 90%;
+		margin-left: 5%;
+		height: 30px;
+		border-radius: 15px;
+		margin-top: 10px;
+		border: 1px solid rgba(241, 74, 82);
+		padding-left: 15px;
+		box-sizing: border-box;
+		outline: none;
+	}
+
+	.contenedor>h1, .contenedor>p{
+		text-align: center;
+		font-family: 'https://fonts.googleapis.com/css?family=Raleway:300,400,500,700,900';
+	}
+
+	.contenedor>h1{
+		margin-bottom: 20px;
+	}
+
+	.contenedor>button{
+		width: 50%;
+		margin-left: 25%;
+		border-radius: 15px;
+		height: 30px;
+		border-right: none;
+		margin-top: 20px;
+		border: none;
+		background:#F14A52 ;
+		color: white;
+		outline: none;
+	}
+	
