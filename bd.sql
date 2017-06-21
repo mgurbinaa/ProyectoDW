@@ -3,8 +3,8 @@ CREATE DATABASE appdesc;
 
 CREATE TABLE appdesc.users(
 	id_user			int(15)		AUTO_INCREMENT NOT NULL,
-	usuario			varchar(16)		NOT NULL,
-	correo			varchar(50)		NOT NULL,
+	usuario			varchar(16)		NOT NULL UNIQUE,
+	correo			varchar(50)		NOT NULL UNIQUE,
 	nombre			varchar(50)		NOT NULL,
 	apellido		varchar(50)		NOT NULL,
 	imagen			varchar(300)	NOT NULL,
@@ -47,4 +47,12 @@ CREATE TABLE appdesc.comentarios(
 	fk_id_user_comment	int(15)			NOT NULL,
 	FOREIGN KEY (fk_id_publi) REFERENCES appdesc.publicaciones(id_publi),
 	FOREIGN KEY (fk_id_user_comment) REFERENCES appdesc.users(id_user)
+);
+
+CREATE TABLE appdesc.votos(
+	fk_id_user_voto		int(15)			NOT NULL,
+	fk_id_publi_voto	int(15)			NOT NULL,
+	tipo_voto 			boolean			NOT NULL,
+	FOREIGN KEY (fk_id_user_voto) REFERENCES appdesc.users(id_user),
+	FOREIGN KEY (fk_id_publi_voto) REFERENCES appdesc.publicaciones(id_publi)
 );
