@@ -6,7 +6,7 @@
 </head>
 <body>
 <div class="contenedor">
-<link href="estilosLogin.css" rel="stylesheet">
+<link href="../css/estilosLogin.css" rel="stylesheet">
    <h1>Registro</h1>
    <p>Introduce tus datos para poder ingresar</p>
    <input type="text" id="usuario" placeholder="Nombre  o email">
