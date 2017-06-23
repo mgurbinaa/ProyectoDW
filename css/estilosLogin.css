@@ -1,72 +1,62 @@
-	#msj-error{
-		width: 90%;
-		margin-left: 5%;
-		background: red;
-		color: white;
-		border-radius: 5px;
-		margin-top: -60px;
-		opacity: 0;
-		visibility: hidden;
-		transition: .3s all;
-	}
-
-	.ver{
-		opacity: 1 !important;
-		visibility: visible !important;
-		margin-top: 10px !important;
-	}
-
 	*{
-		margin: 0;
-		padding: 0;
-	}
+    margin: 0;
+    padding: 0;
+ }
 
-	body{
-		background: #F14A52;
-	}
+body{
+        background: rgba(0,0,0,.1);
+    }
+ h1{
+    text-align: center; /*ALINEACION DE TEXTO*/
+    color: #F14A52;
+    font-family: 'https://fonts.googleapis.com/css?family=Raleway:300,400,500,700,900'; /*TIPO DE LETRA*/
+    font-size: 35px; /*TAMAÑO DE LA LETRA*/
+    font-weight: normal;/*GROSOR DE LA LETRA */
+}
 
-	.contenedor{
-		background: white;
-		border-radius: 10px;
-		width: 500px;
-		height: 300px;
-		float: left;
-		margin-left: calc(50% - 200px);
-		margin-top: 100px;
-	}
+   p{
+    text-align: center; /*ALINEACION DE TEXTO*/
+    font-family: 'https://fonts.googleapis.com/css?family=Raleway:300,400,500,700,900'; /*TIPO DE LETRA*/
+    font-size: 15px; /*TAMAÑO DE LA LETRA*/
+    font-weight: normal;
+    }
 
-	.contenedor>input{
-		float: left;
-		width: 90%;
-		margin-left: 5%;
-		height: 30px;
-		border-radius: 15px;
-		margin-top: 10px;
-		border: 1px solid rgba(241, 74, 82);
-		padding-left: 15px;
-		box-sizing: border-box;
-		outline: none;
-	}
-
-	.contenedor>h1, .contenedor>p{
-		text-align: center;
-		font-family: 'https://fonts.googleapis.com/css?family=Raleway:300,400,500,700,900';
-	}
-
-	.contenedor>h1{
-		margin-bottom: 20px;
-	}
-
-	.contenedor>button{
-		width: 50%;
-		margin-left: 25%;
-		border-radius: 15px;
-		height: 30px;
-		border-right: none;
-		margin-top: 20px;
-		border: none;
-		background:#F14A52 ;
-		color: white;
-		outline: none;
-	}
-	
+ }
+    a{
+    text-align: center; /*ALINEACION DE TEXTO*/
+    font-family: 'https://fonts.googleapis.com/css?family=Raleway:300,400,500,700,900'; /*TIPO DE LETRA*/
+    font-size: 10px; /*TAMAÑO DE LA LETRA*/
+    font-weight: normal;/*GROSOR DE LA LETRA */
+}
+    
+    .contenedor{
+        background: white;
+        border-radius: 20px;
+        width:  420px;
+        height: 350px;
+        float: left;
+        margin-left: calc(50% - 200px);
+        margin-top: 20px;
+    }
+    .contenedor>input{
+        float: left;
+        width: 80%;
+        margin-left: 5%;
+        height: 30px;
+        border-radius: 15px;
+        margin-top: 10px;
+        border: 1px solid rgba(0,0,0,.2);
+        padding-left: 15px;
+        box-sizing: border-box;
+        outline: none;
+        text-align: center;
+    }
+#nombre>h2{
+                line-height: 40px;
+                width: 100%;
+                font-size: 25px;
+                font-weight: 500;
+                color: rgba(241, 74, 82);
+                float: left;
+                position: relative;
+            }
