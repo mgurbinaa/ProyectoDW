@@ -3,7 +3,7 @@
 <head>
 	<title>Inicio de sesión</title>
 	
-   <link rel="stylesheet" type="text/css" href="estilos.css">
+   <link rel="stylesheet" type="text/css" href="../css/estilos.css">
    <meta charset="utf-8">
    
    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700,900" rel="stylesheet">
@@ -12,14 +12,14 @@
    <div id="encabezado">
       <div id="logo">
          <div id="imagen">
-            <img src="img/logo.png">
+            <img src="../img/logo.png">
          </div>
          <div id="nombre">
             <h2>Deals</h2>
             <h5>Las mejores Ofertas</h5>
          </div>
       </div>
-	<link rel="stylesheet" type="text/css" href="estiloslogin.css">
+	<link rel="stylesheet" type="text/css" href="../css/estiloslogin.css">
 </head>
 <body>
 	<div>

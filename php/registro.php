@@ -4,7 +4,7 @@ $con = mysqli_connect('localhost','root','','appdesc');
 <html>
 <body>
 <title>Deals</title>
-   <link rel="stylesheet" type="text/css" href="estilos.css">
+   <link rel="stylesheet" type="text/css" href="../css/estilos.css">
    <meta charset="utf-8">
    
    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700,900" rel="stylesheet">
@@ -13,7 +13,7 @@ $con = mysqli_connect('localhost','root','','appdesc');
    <div id="encabezado">
       <div id="logo">
          <div id="imagen">
-            <img src="img/logo.png">
+            <img src="../img/logo.png">
          </div>
          <div id="nombre">
             <h2>Deals</h2>
@@ -22,7 +22,7 @@ $con = mysqli_connect('localhost','root','','appdesc');
       </div>
 <div class="agregarNuevoUsuario">
    
-      <link rel="stylesheet" type="text/css" href="estiloslogin.css">
+      <link rel="stylesheet" type="text/css" href="../css/estiloslogin.css">
  <form method="post" action="registro.php">
  <div class="contenedor">
  <h1>Bienvenido</h1>
@@ -40,7 +40,7 @@ $con = mysqli_connect('localhost','root','','appdesc');
          <input type="submit" name="registro" value="Registro">
           <br><br>
          <br><br>
-         <a href="login.html">  Inicia sesion </a>
+         <a href="login.php">  Inicia sesion </a>
    </form>
  </div>
 

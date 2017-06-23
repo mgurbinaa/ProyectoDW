@@ -19,9 +19,9 @@
 
 			<div id="menu">
 				<ul>
-					<a href="index.html"><li class="actual">Hot</li></a>
-					<a href="login.html"><li>Iniciar sesion</li></a>
-					<a href="compartir.html"><li>compartir</li></a>
+					<a href="index.php"><li class="actual">Hot</li></a>
+					<a href="login.php"><li>Iniciar sesion</li></a>
+					<a href="compartir.php"><li>compartir</li></a>
 				</ul>
 			</div>
 			<div id="busqueda">

@@ -3,7 +3,7 @@ session_start();
 include('conexion.php');
 $conexion = conexion ();
 if(!isset($_SESSION['id_user'])){
-	header('location:login.html');
+	header('location:login.php');
 }
 
 $id_user = $_SESSION['id_user'];
@@ -16,16 +16,16 @@ $usuarioQuery = consulta($query);
 	
 	
 	<title>Deals</title>
-	<link rel="stylesheet" type="text/css" href="estilos.css">
+	<link rel="stylesheet" type="text/css" href="../css/estilos.css">
 	<meta charset="utf-8">
-	<script type="text/javascript" src="js/funciones.js"></script>
+	<script type="text/javascript" src="../js/funciones.js"></script>
 	<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700,900" rel="stylesheet">
 </head>
 <body>
 	<div id="encabezado">
 		<div id="logo">
 			<div id="imagen">
-				<img src="img/logo.png">
+				<img src="../img/logo.png">
 			</div>
 			<div id="nombre">
 				<h1>Deals</h1>
@@ -35,9 +35,9 @@ $usuarioQuery = consulta($query);
 
 		<div id="menu">
 			<ul>
-				<a href="index.html"><li class="actual">Hot</li></a>
-				<a href="compartir.html"><li>compartir</li></a>
-				<a href="contactos.html"><li>contactanos</li></a>
+				<a href="index.php"><li class="actual">Hot</li></a>
+				<a href="compartir.php"><li>compartir</li></a>
+				<a href="contactos.php"><li>contactanos</li></a>
 
 	<table>
 		<?php 
@@ -75,7 +75,7 @@ $usuarioQuery = consulta($query);
 	
 		<div id="modelo">
 			<div id="foto">
-				<img src="img/m1.jpg" onclick="verFoto(this.id)" id="m1">
+				<img src="../img/m1.jpg" onclick="verFoto(this.id)" id="m1">
 			</div>
 	
 			<div id="acciones">
@@ -83,7 +83,7 @@ $usuarioQuery = consulta($query);
 			<button class="votar"  onclick="votarmenos('idm6','idp6')">Votar - </button>
 
 
-				<img src="img/comen.png" onclick="abrircomen('id1')" style="opacity: .7; height: 90% !important;">
+				<img src="../img/comen.png" onclick="abrircomen('id1')" style="opacity: .7; height: 90% !important;">
 			</div>
 			<div class="comentarios" id="id1">
 				<textarea maxlength="140" placeholder="Escribe tu comentario aquí..." onkeyup="restar('idm1','contador1')" id="idm1"></textarea>
@@ -101,14 +101,14 @@ $usuarioQuery = consulta($query);
 		<div id="modelo">
 			<div id="foto">
 			
-				<img src="img/m2.jpg" onclick="verFoto(this.id)" id="m2">
+				<img src="../img/m2.jpg" onclick="verFoto(this.id)" id="m2">
 			</div>
 			
 			<div id="acciones">
 				
 			<button onclick="votarmas('idm7','idp7')">Votar + </button>
 			<button onclick="votarmenos('idm8','idp8')">Votar - </button>
-				<img src="img/comen.png" onclick="abrircomen('id2')" style="opacity: .7; height: 90% !important;">
+				<img src="../img/comen.png" onclick="abrircomen('id2')" style="opacity: .7; height: 90% !important;">
 			</div>
 			<div class="comentarios" id="id2">
 				<textarea maxlength="140" placeholder="Escribe tu comentario aquí..." onkeyup="restar('idm2','contador2')" id="idm2"></textarea>
@@ -126,13 +126,13 @@ $usuarioQuery = consulta($query);
 		<div id="modelo">
 			<div id="foto">
 			
-				<img src="img/.jpg" onclick="verFoto(this.id)" id="m3">
+				<img src="../img/.jpg" onclick="verFoto(this.id)" id="m3">
 			</div>
 		
 			<div id="acciones">
 				<button onclick="votarmas('idm9','idp9')">Votar + </button>
 				<button onclick="votarmenos('idm10','idp10')">Votar - </button>
-				<img src="img/comen.png" onclick="abrircomen('id3')" style="opacity: .7; height: 90% !important;">
+				<img src="../img/comen.png" onclick="abrircomen('id3')" style="opacity: .7; height: 90% !important;">
 			</div>
 			<div class="comentarios" id="id3">
 				<textarea maxlength="140" placeholder="Escribe tu comentario aquí..." onkeyup="restar('idm3','contador3')" id="idm3"></textarea>
@@ -150,13 +150,13 @@ $usuarioQuery = consulta($query);
 		<div id="modelo">
 			<div id="foto">
 			
-				<img src="img/m4.jpg" onclick="verFoto(this.id)" id="m4">
+				<img src="../img/m4.jpg" onclick="verFoto(this.id)" id="m4">
 			</div>
 		
 			<div id="acciones">
 			<button onclick="votarmas('idm11','idp11')">Votar + </button>
 			<button onclick="votarmenos('idm12','idp12')">Votar - </button>
-				<img src="img/comen.png" onclick="abrircomen('id4')" style="opacity: .7; height: 90% !important;">
+				<img src="../img/comen.png" onclick="abrircomen('id4')" style="opacity: .7; height: 90% !important;">
 			</div>
 			<div class="comentarios" id="id4">
 				<textarea maxlength="140" placeholder="Escribe tu comentario aquí..." onkeyup="restar('idm4','contador4')" id="idm4"></textarea>
