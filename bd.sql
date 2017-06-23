@@ -7,7 +7,6 @@ CREATE TABLE appdesc.users(
 	correo			varchar(50)		NOT NULL UNIQUE,
 	nombre			varchar(50)		NOT NULL,
 	apellido		varchar(50)		NOT NULL,
-	imagen			varchar(300)	NOT NULL,
 	password		varchar(500)	NOT NULL,
 	PRIMARY KEY (id_user)
 );
