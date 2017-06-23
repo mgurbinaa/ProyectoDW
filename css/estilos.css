@@ -172,6 +172,7 @@
 				cursor: pointer;
 				transition: .2s all;
 			}
+			
 		.comentarios{
 			width: 90%;
 			margin-left: 5%;
@@ -186,6 +187,7 @@
 			transition: .2s all;
 			overflow-y: scroll; 
 		}
+	
 		.ver-comentarios{
 			height: 200px !important;
 			padding:10px;
@@ -310,3 +312,5 @@ footer{
     outline: none;
     transition: .2% all;
 }
+
+	
