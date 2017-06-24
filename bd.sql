@@ -2,12 +2,13 @@ DROP DATABASE appdesc;
 CREATE DATABASE appdesc;
 
 CREATE TABLE appdesc.users(
-	id_user			int(15)		AUTO_INCREMENT NOT NULL,
+	id_user			int(15)			AUTO_INCREMENT NOT NULL,
 	usuario			varchar(16)		NOT NULL UNIQUE,
 	correo			varchar(50)		NOT NULL UNIQUE,
 	nombre			varchar(50)		NOT NULL,
 	apellido		varchar(50)		NOT NULL,
 	password		varchar(500)	NOT NULL,
+	imagen			varchar(300)	NOT NULL,
 	PRIMARY KEY (id_user)
 );
 

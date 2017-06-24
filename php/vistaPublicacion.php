@@ -64,9 +64,56 @@ $usuarioQuery = consulta($query);
 
 			$datos = $db->getPubliData($_POST['idPubli']);
 			if($datos->num_rows > 0){
-				echo "";
+				echo "<div id='datosPubli'>
+						<h1 id='titulPubli'>{$datos['title']}</h1>
+						<form action='{$datos['link']}' id='oferta'>";
+				if(isset($datos['precio'])){
+					echo "<button id='precioPubli' disabled>$datos['precio']</button>
+						  <button id='linkPubli'>Ir a la oferta</button>";
+				}
+				else{
+					echo "<button id='linkPubli2'>Ir a la oferta</button>";
+				}
+				echo "</form>
+						<img src='{$datos['imgPubli']}' id='imgPubli'>
+						<div id='califPubli'>
+							<p id='calif'>{$datos['calificacion']}</p>
+						</div>
+						<p id='descPubli'>{$datos['descripcion']}</p>
+					  </div>";
+			}
+			else
+			{
+				header("Location: index.php");
 			}
 
+			$comments = $db->getComments($_POST['idPubli']);
+			if($comments->num_rows>0){
+				$i=0;
+				while ($row = $comments->fetch_assoc()){
+					$resp[$i]=$row;
+					$i++;
+				}
+			}
+			else{
+				echo"<div id='comentarios'>
+						<h2 id='noComments'>No hay comentarios aún :(</h2>
+					 </div>";
+			}
+
+			if(is_array($resp)){
+				foreach ($resp as $comment){
+					$usr = $db->getUserComment($comment['fk_id_user_comment']);
+					echo "<div id='comentarios'>
+							<div id='comentario'>
+								<img src='{$usr['imagen']}' id='imgComment'>
+								<h3 id='usrComment'>$usr['usuario']</h3>
+								<p id='fechaComment'>$comment['fecha_comment']</p>
+								<p id='comment'>$comment['contenido']</p>
+							</div>
+						  </div>";
+				}
+			}
 			?>
 		</div>
 	

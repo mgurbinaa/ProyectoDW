@@ -10,8 +10,20 @@ class Database{
 
     function getPubliData($idpubli){
         $query = "SELECT * FROM publicaciones where id_publi = '{$id_publi}'";
-        $publi = $this->con-query($query);
-        return $publi;
+        $publi = $this->con->query($query);
+        return $publi->fetch_assoc();
+    }
+
+    function getComments($idpubli){
+        $query = "SELECT * FROM comentarios WHERE fk_id_publi = '{$idpubli}'";
+        $comment = $this->con->query($query);
+        return $comment;
+    }
+
+    function getUserComment($iduser){
+        $query = "SELECT usuario, imagen FROM users WHERE id_user = '{$iduser}'";
+        $usr = $this->con->query($query);
+        return $usr->fetch_assoc();
     }
 
 	function getUser($user){
