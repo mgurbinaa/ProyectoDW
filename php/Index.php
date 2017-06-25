@@ -36,7 +36,7 @@ $usuarioQuery = consulta($query);
 		<div id="menu">
 			<ul>
 				<a href="index.php"><li class="actual">Hot</li></a>
-				<a href="compartir.php"><li>compartir</li></a>
+				<a href="crearPublicacion.php"><li>compartir</li></a>
 				<a href="contactos.php"><li>contactanos</li></a>
 
 	<table>
