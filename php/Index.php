@@ -45,7 +45,7 @@ $usuarioQuery = consulta($query);
 			?>
 		<tr>
 			<td align="left"><?php echo $rUsu['nombre'].' '.$rUsu['apellido']?></td>
-			<td align="left">
+		
 			<a href="cerrar_sesion.php"> Finalizar sesión</a>
 			</td>
 		</tr>
