@@ -1,0 +1,63 @@
+*{
+		margin: 0;
+		padding: 0;
+	}
+
+	body{
+		background: rgba(0,0,0,.1);
+	}
+
+	#crearPublicacion{
+        background: white;
+        border-radius: 10px;
+        width: 480px;
+        height:400px;
+        float: left;
+        margin-left: calc(25% - 200px);
+        margin-top: 40px;
+    }
+	input{
+		float: left;
+		width: 90%;
+		margin-left: 5%;
+		height: 30px;
+		border-radius: 15px;
+		margin-top: 15px;
+		border: 1px solid rgba(0,0,0,.2);
+		padding-left: 30px;
+		box-sizing: border-box;
+		outline: none;
+	}
+	textarea{
+		border-radius: 15px;
+		margin-top: 15px;
+		border: 1px solid rgba(0,0,0,.2);
+		padding-left: 10px;
+		box-sizing: border-box;
+		
+	}
+	p{
+    text-align: center; /*ALINEACION DE TEXTO*/
+    font-size: 20px; /*TAMAÑO DE LA LETRA*/
+    font-weight: normal;
+    }
+
+  #file {
+		background: white;
+        border-radius: 10px;
+        height:70px;
+        width: 90%;
+        float: left;
+        margin-left: calc(165% - 200px);
+        margin-top: -180px;
+  }
+  #file>input{
+		float: left;
+		width: 90%;
+		margin-left: 5%;
+		height: 30px;
+		margin-top: 15px;
+		padding-left: 30px;
+		border: 0px solid rgba(0,0,0,.2);
+		outline: none;
+	}
