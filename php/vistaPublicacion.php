@@ -21,10 +21,10 @@ $usuarioQuery = consulta($query);
 		<div id="encabezado">
 			<div id="logo">
 				<div id="imagen">
-					<a href="index.php"><img src="../img/logo.png"></a>
+					<img src="../img/logo.png">
 				</div>
 				<div id="nombre">
-					<h1><a href="index.php">Deals</a></h1>
+					<h1>Deals</h1>
 					<h5>Las mejores Ofertas</h5>
 				</div>
 			</div>
