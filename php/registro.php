@@ -40,7 +40,7 @@ $con = mysqli_connect('localhost','root','','appdesc');
          <input type="submit" name="registro" value="Registro">
           <br><br>
          <br><br>
-         <a href="login.php">  Inicia sesion </a>
+         <p>O si ya tienes cuenta <a href="login.php">inicia sesión</a>.</p>
    </form>
  </div>
 
@@ -65,3 +65,4 @@ if (isset($_POST['registro'])) {
 
 </body>
 </html> 
+
