@@ -21,10 +21,10 @@ $usuarioQuery = consulta($query);
 		<div id="encabezado">
 			<div id="logo">
 				<div id="imagen">
-					<img src="../img/logo.png">
+					<a href="index.php"><img src="../img/logo.png"></a>
 				</div>
 				<div id="nombre">
-					<h1>Deals</h1>
+					<h1><a href="index.php">Deals</a></h1>
 					<h5>Las mejores Ofertas</h5>
 				</div>
 			</div>
@@ -57,27 +57,25 @@ $usuarioQuery = consulta($query);
 
 		<div id="datosPublicacion">
 			<div id='datosPubli'>
-				<h1 id='titulPubli'>{$datos['title']}</h1>
+				<h1 id='titulPubli'>TÍTULO</h1>
 				<form action='{$datos['link']}' id='oferta'>
-					<button id='precioPubli' disabled>$datos['precio']</button>
-					<button id='linkPubli'>Ir a la oferta</button>
-					<button id='linkPubli2'>Ir a la oferta</button>
+					<button id='precioPubli' disabled>$ PRECIO</button>
+					<button id='linkPubli'>LINK A LA OFERTA</button>
 				</form>
 					<img src='{$datos['imgPubli']}' id='imgPubli'>
 					<div id='califPubli'>
-						<p id='calif'>{$datos['calificacion']}</p>
+						<p id='calif'>CALIFICACIÓN</p>
 					</div>
-					<p id='descPubli'>{$datos['descripcion']}</p>
+					<p id='descPubli'>Descripción: </p>
 				</div>
 				<div id='comentarios'>
 					<h2 id='noComments'>No hay comentarios aún :(</h2>
 				</div>
 				<div id='comentarios'>
 					<div id='comentario'>
-						<img src='{$usr['imagen']}' id='imgComment'>
-						<h3 id='usrComment'>$usr['usuario']</h3>
-						<p id='fechaComment'>$comment['fecha_comment']</p>
-						<p id='comment'>$comment['contenido']</p>
+						<h3 id='usrComment'>Usuario que comenta</h3>
+						<p id='fechaComment'>Fecha del comentario</p>
+						<p id='comment'>Texto del comentario</p>
 					</div>
 				</div>
 		</div>
