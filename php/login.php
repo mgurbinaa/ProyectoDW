@@ -37,7 +37,7 @@
 			<input type="submit" value="Iniciar Sesion">
 			<br><br>
 			<br><br>
-		 <a href="registro.php"> O puedes registrate aqui</a>
+		 <p>O puedes registrarte aqui <a href="registro.php">Registro</a>.</p>
 		</form>
 
 </div>
@@ -45,4 +45,5 @@
 	</div>
 </body>
 </html>
+
 
