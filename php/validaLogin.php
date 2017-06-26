@@ -7,6 +7,5 @@ $usuario = $_GET['u'];
 $password = $_GET['p'];
 
 echo $db->startSession($usuario, $password);
-echo $_SESSION['id_user'];
 
 ?>

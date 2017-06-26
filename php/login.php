@@ -48,6 +48,7 @@ if(isset($_SESSION['id_user'])){
 			if(usuario != "" && password != ""){
 				ajaxLogin = new XMLHttpRequest();
 				ajaxLogin.open('GET', 'validaLogin.php?u='+usuario+'&p='+password, true);
+				alert('validaLogin.php?u='+usuario+'&p='+password);
 				ajaxLogin.send();
 				ajaxLogin.onreadystatechange = function(){
 					if(ajaxLogin.readyState == 3 && ajaxLogin.status == 200){
