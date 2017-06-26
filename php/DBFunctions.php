@@ -33,19 +33,15 @@ class Database{
 	}
 
 	function startSession($user, $pass){
-        $sel = $this->con->query("SELECT usuario, password FROM users WHERE usuario = '{$user}';");
-        if($sel){
-            $datos = $sel->fetch_array();
-            if($pass == $datos['password']){
-                $_SESSION["appdesc"] = $datos['id_user'];
-                header('Location: index.php');
-            }
-            else{
-                return "Usuario y/o contraseña incorrectos.";
-            }
-        }
-        else{
-            return "Usuario y/o contraseña incorrectos.";
+        session_start();
+        $consulta = "SELECT * FROM users WHERE correo = '{$user}' AND password = md5('{$pass}')";
+        $result = $this->con->query($consulta);
+        $r = $result->fetch_assoc();
+        if(is_array($r)){
+            $_SESSION['id_user'] = $r['id_user'];
+            return "IN";
+        }else{
+            return "NO";
         }
     }
     
