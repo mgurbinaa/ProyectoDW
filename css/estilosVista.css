@@ -1,0 +1,57 @@
+
+*{
+        margin: 0;
+        padding: 0;
+    }
+
+    body{
+        background: rgba(0,0,0,.1);
+    }#datosPublicacion{
+        background:white;
+        border-radius: 10px;
+        width: 500px;
+        height:500px;
+        float: left;
+        margin-left: calc(45% - 200px);
+        margin-top: 140px;
+    }
+    #titulPubli{
+    text-align: center; /*ALINEACION DE TEXTO*/
+    font-size: 20px; /*TAMAÑO DE LA LETRA*/
+    font-weight: normal;
+    }
+    button{
+        float: left;
+        width: 40%;
+        height: 20px;
+        margin-left: 7%;
+        border-radius: 10px;
+        margin-top: 10px;
+        border: 1px ;
+        padding-left: 10px;
+        outline: none;
+
+     }
+   #imgPubli{
+
+            width: 80%;
+            height: 280px;
+            float: left;
+            position: relative;
+            border: 1px solid rgba(0,0,0,.2);
+            margin-left: 10%; 
+            padding: 5px;
+            box-sizing: border-box;
+        }
+     #califPubli>p{
+        float: left;
+        width: 90%;
+        margin-top: 15px;
+        font-size: 15px;
+        }
+        #comentarios>p{
+        float: left;
+        width: 90%;
+        margin-top: 15px;
+        font-size: 15px;
+        }
