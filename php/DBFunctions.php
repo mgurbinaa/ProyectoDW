@@ -50,13 +50,15 @@ class Database{
         header('Location: index.php');
     }
     
-    function signup($user, $pass, $nombre, $apellido, $correo, $imagen, $password){
-        $ins = $this->con->query("INSERT INTO users VALUES(0, '{$user}', '{$correo}', '{$nombre}', '{$apellido}', '{$imagen}', '{$password}');");
-        if($ins){
-            header('Location: login.php');
+    function signup($user, $correo, $nombre, $apellido, $password){
+        $pass = MD5($password);
+        $ins = "INSERT INTO users VALUES(0, '{$user}', '{$correo}', '{$nombre}', '{$apellido}', '{$pass}');";
+        $result = $this->con->query($ins);
+        if($result){
+            return "SIGNED";
         }
         else{
-            echo "El usuario o correo ya está registrado, intenta con uno diferente.";
+            return "NO";
         }
     }
 

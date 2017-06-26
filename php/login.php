@@ -33,7 +33,7 @@ if(isset($_SESSION['id_user'])){
 			<br><br>
 			<input type="password" name="password" id="password" placeholder="Password">
 			<br><br>
-			<button id="boton" name="boton" onclick="login()">Iniciar Sesión</button>
+			<input type="submit" name="login" id="boton" onclick="login()" value="Iniciar Sesión">
 			<br><br>
 			<br><br>
 	 		<p>O puedes registrarte aquí: <a href="registro.php">Registro</a>.</p>
