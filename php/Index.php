@@ -116,7 +116,7 @@ $usuarioQuery = consulta($query);
 		function goToPubli(id){
 			window.location.href = 'vistaPublicacion.php?id='+id;
 		}
-		window.addEventListener('load', obtener('idm'), true)
+		
 	</script>
 
 </body>

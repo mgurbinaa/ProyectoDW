@@ -103,6 +103,14 @@ $usuarioQuery = consulta($query);
 				}
 			}
 			?>
+			<div class="comentarios ver-comentarios" id="id1">
+				<textarea maxlength="140" placeholder="Escribe tu comentario aquí..." onkeyup="restar('idm1','contador1')" id="idm1"></textarea>
+				<div class="btncar">
+					<button onclick="publicar('idm1','idp1')">Comentar!</button>
+					<h4 id="contador1">140</h4>
+				</div>
+				<div id="idp1">
+					<p></p>	
 
 		<?php
 		if($_GET['id']){
@@ -116,23 +124,16 @@ $usuarioQuery = consulta($query);
 				}
 				if(is_array($resp)){
 					foreach ($resp as $comment){
-						$usr = $db->getUserComment($comment['fk_id_user_comment']);
-						echo "<div id='comentarios'>
-								<div id='comentario'>
-								<h3 id='usrComment'>{$usr['usuario']}</h3>
-								<p id='fechaComment'>{$comment['fecha_comment']}</p>
-								<p id='comment'>{$comment['contenido']}</p>
-							</div>
-						</div>";
+						echo "<p>{$comment['contenido']}</p>";
 					}
 				}	
 			}else{
-				echo"<div id='comentarios'>
-						<h2 id='noComments'>No hay comentarios aún :(</h2>
-				 	</div>";
+				echo"<h2>No hay comentarios aún :(</h2>";
 			}
 		}
 		?>
+			</div>		
+		</div>
 	
 		</div>
 
