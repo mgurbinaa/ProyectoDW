@@ -116,9 +116,9 @@ $usuarioQuery = consulta($query);
 						  </div>";
 					}
 				}
-				else{
-					header("location: index.php");
-				}
+			}
+			else{
+				header("location: index.php");
 			}
 			?>
 			<div class="comentarios ver-comentarios" id="id1">
