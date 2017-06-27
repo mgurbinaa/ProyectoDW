@@ -97,8 +97,9 @@ $usuarioQuery = consulta($query);
 				}
 			}
 			else{
-				$datos = $db->getPubliData($_POST['idPubli']);
-				if($datos->num_rows > 0){
+				$data = $db->getPubliData($_POST['idPubli']);
+				$datos = $data->fetch_array();
+				if(is_array($datos)){
 					echo "<div id='datosPubli'>
 							<h1 id='titulPubli'>{$datos['title']}</h1>
 							<form action='{$datos['link']}' id='oferta'>";
@@ -123,7 +124,6 @@ $usuarioQuery = consulta($query);
 				}
 			}
 			?>
-		</div>
 
 		<?php
 		if($_GET['id']){
@@ -184,6 +184,7 @@ $usuarioQuery = consulta($query);
 			}
 			?>
 	
+		</div>
 
 	</body>
 </html>
