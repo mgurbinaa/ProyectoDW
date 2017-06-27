@@ -116,6 +116,23 @@
 		padding-bottom: 20px;
 		box-sizing: border-box;
 	}
+		#datos{
+			width: 95%;
+			height: 20px;
+			margin-left: 5%;
+			float: left;
+		}
+		#calif{
+			background: #FE2E64;
+			color: white;
+			float: right;
+			margin-right: 1%;
+			width: 10%;
+			height: 20px;
+			display: inline;
+			margin-top: -15px;
+			text-align: center;
+		}
 		#foto{
 			width: 90%;
 			height: 350px;
@@ -165,12 +182,24 @@
 			margin-left: 5%;
 			position: relative;
 			float: left;
-			height: 30px;
+			height: 80px;
 		}
 			#acciones>img{
 				height: 100%;
 				cursor: pointer;
 				transition: .2s all;
+			}
+			#votar{
+				text-align: center;
+				float: left;
+			    width:15%;
+			    margin-left: 0%;
+			    height: 30px;
+			    margin-top: 10px;
+			    border-radius: 115px;
+			    border: 1px solid rgba(0,0,0,.5);
+			    outline: none;
+			    font-size: 2em;
 			}
 			
 		.comentarios{
@@ -299,15 +328,5 @@ footer{
 		width: 100%;
 		height: 100%;
 	}
-button{
-    text-align: center;
-    width: 29%;
-    margin-left: 0%;
-    height: 30px;
-    padding-left: 10px;
-    margin-top: 10px;
-    border-radius: 115px;
-    border: 1px solid rgba(0,0,0,.5);
-    outline: none;
-}
+
 	

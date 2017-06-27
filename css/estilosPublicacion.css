@@ -61,3 +61,16 @@
 		border: 0px solid rgba(0,0,0,.2);
 		outline: none;
 	}
+
+	#califPubli{
+			background: #FE2E64;
+			color: white;
+			float: right;
+			margin-right: 1%;
+			width: 50px;
+			height: 20px;
+			display: inline;
+			margin-top: -15px;
+			text-align: center;
+			font-weight: bolder;
+		}

@@ -93,24 +93,16 @@ $usuarioQuery = consulta($query);
 							<div id='foto'>
 								<img src='../src/{$publi['id_publi']}.jpeg' onclick='goToPubli({$publi['id_publi']})'>
 							</div>
+							<div id='datos'>
+								<h3>{$publi['shop']}: {$publi['title']}</h3>
+								<div id='calif'>
+									<h4>{$publi['calificacion']}</h4>
+								</div>
+							</div>
 					
 							<div id='acciones'>
-							<button class='votar' onclick='votarmas(\'idm5\',\'idp5\')'>Votar + </button>
-							<button class='votar'  onclick='votarmenos(\'idm6\',\'idp6\')'>Votar - </button>
-
-
-								<img src='../img/comen.png' onclick='abrircomen(\'id1\')' style='opacity: .7; height: 90% !important;'>
-							</div>
-							<div class='comentarios' id='id1'>
-								<textarea maxlength='140' placeholder='Escribe tu comentario aquí...' onkeyup='restar(\'idm1\',\'contador1\')' id='idm1'></textarea>
-								<div class='btncar'>
-									<button onclick='publicar(\'idm1\',\'idp1\')'>Comentar!</button>
-									<h4 id='contador1'>140</h4>
-								</div>
-								<div id='idp1'>
-									<p></p>	
-								</div>
-								
+								<button class='votar' id='votar' onclick='votarmas({$publi['id_publi']})'>+ </button>
+								<button class='votar' id='votar' onclick='votarmenos({$publi['id_publi']})'>- </button>
 							</div>
 						</div>";
 				}

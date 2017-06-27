@@ -86,41 +86,20 @@ $usuarioQuery = consulta($query);
 					}
 					echo "</form>
 							<img src='../src/{$_GET['id']}.jpeg' id='imgPubli'><br><br>
+							<div id='acciones'>
+								<div id='califPubli'>
+									<p id='calif'>Calificación: {$datos['calificacion']}</p>
+								</div>
+								<button class='votar' id='votar' onclick='votarmas({$_GET['id']})'>+ </button>
+								<button class='votar' id='votar' onclick='votarmenos({$_GET['id']})'>- </button>
+							</div>
 							<p id='descPubli'>{$datos['descripcion']}</p>
 							<div id='califPubli'>
-							<p id='calif' style='color:red; font-weight:bold'>Calificación: {$datos['calificacion']}</p>
 							</div>
 						  </div>";
 					}
 				else{
 					header("location: index.php");
-				}
-			}
-			else{
-				$data = $db->getPubliData($_POST['idPubli']);
-				$datos = $data->fetch_array();
-				if(is_array($datos)){
-					echo "<div id='datosPubli'>
-							<h1 id='titulPubli'>{$datos['title']}</h1>
-							<form action='{$datos['link']}' id='oferta'>";
-					if(isset($datos['precio'])){
-						echo "<button id='precioPubli' disabled>{$datos['precio']}</button>
-							  <button id='linkPubli'>Ir a la oferta</button>";
-					}
-					else{
-						echo "<button id='linkPubli2'>Ir a la oferta</button>";
-					}
-					echo "</form>
-							<img src='{$datos['imgPubli']}' id='imgPubli'>
-							<div id='califPubli'>
-								<p id='calif'>{$datos['calificacion']}</p>
-							</div>
-							<p id='descPubli'>{$datos['descripcion']}</p>
-						  </div>";
-				}
-				else
-				{
-					header("Location: index.php");
 				}
 			}
 			?>
@@ -153,36 +132,7 @@ $usuarioQuery = consulta($query);
 				 	</div>";
 			}
 		}
-		else{
-			$comm = $db->getComments($_POST['idPubli']);
-			$comments = $comm->fetch_array();
-				if(is_array($comments)){
-					$i=0;
-					while ($row = $comments->fetch_assoc()){
-						$resp[$i]=$row;
-						$i++;
-					}
-				}
-				else{
-					echo"<div id='comentarios'>
-							<h2 id='noComments'>No hay comentarios aún :(</h2>
-						 </div>";
-				}
-
-				if(is_array($resp)){
-					foreach ($resp as $comment){
-						$usr = $db->getUserComment($comment['fk_id_user_comment']);
-						echo "<div id='comentarios'>
-								<div id='comentario'>
-									<h3 id='usrComment'>{$usr['usuario']}</h3>
-									<p id='fechaComment'>{$comment['fecha_comment']}</p>
-									<p id='comment'>{$comment['contenido']}</p>
-								</div>
-							  </div>";
-					}
-				}
-			}
-			?>
+		?>
 	
 		</div>
 
