@@ -81,5 +81,17 @@ class Database{
             return "ERROR";
         }
     }
+
+    function comment($user, $publi, $comm){
+        $date = date("Y-m-d H:i:s");
+        $query = "INSERT INTO comentarios VALUES('{$comm}', '{$date}', '{$publi}', '{$user}');";
+        $com = $this->con->query($query);
+        if($com){
+            return "YES";
+        }
+        else{
+            return "$query";
+        }
+    }
 }
 ?>

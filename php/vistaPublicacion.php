@@ -106,7 +106,7 @@ $usuarioQuery = consulta($query);
 			<div class="comentarios ver-comentarios" id="id1">
 				<textarea maxlength="140" placeholder="Escribe tu comentario aquí..." onkeyup="restar('idm1','contador1')" id="idm1"></textarea>
 				<div class="btncar">
-					<button onclick="publicar('idm1','idp1')">Comentar!</button>
+					<button id='com' onclick="comentar(<?php echo $_GET['id'] ?>,<?php echo $_SESSION['id_user'] ?>)">Comentar!</button>
 					<h4 id="contador1">140</h4>
 				</div>
 				<div id="idp1">
@@ -114,9 +114,8 @@ $usuarioQuery = consulta($query);
 
 		<?php
 		if($_GET['id']){
-			$comm = $db->getComments($_GET['id']);
-			$comments = $comm->fetch_array();
-			if(is_array($comments)){
+			$comments = $db->getComments($_GET['id']);
+			if($comments->num_rows>0){
 				$i=0;
 				while ($row = $comments->fetch_assoc()){
 					$resp[$i]=$row;
@@ -138,4 +137,31 @@ $usuarioQuery = consulta($query);
 		</div>
 
 	</body>
+
+	<script type="text/javascript">
+		function comentar(idPubli, idUser){
+			comentario = document.getElementById('idm1').value;
+			if(comentario!=''){
+				ajaxComment = new XMLHttpRequest();
+				ajaxComment.open('GET', 'comentar.php?p='+idPubli+'&u='+idUser+'&c='+comentario);
+				ajaxComment.send();
+				ajaxComment.onreadystatechange = function(){
+					if(ajaxComment.readyState == 3 && ajaxComment.status == 200){
+	                    document.getElementById('idm1').disabled = 'true';
+	                    document.getElementById('com').disabled = 'true';
+	                    document.getElementById('com').innerHTML = 'Publicando...';
+	                    document.getElementById('com').style.opacity = '.5';
+	                }
+	                if(ajaxComment.readyState == 4 && ajaxComment.status == 200){
+	                    if(ajaxComment.responseText == "YES"){
+	                        window.location.reload();
+	                    }
+	                    else{
+	                    	alert("Ups... Ocurrió un error al publicar tu comentario");
+	                    }
+	                }
+				}
+			}
+		}
+	</script>
 </html>
