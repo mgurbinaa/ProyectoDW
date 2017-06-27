@@ -89,15 +89,33 @@ $usuarioQuery = consulta($query);
 							<div id='acciones'>
 								<div id='califPubli'>
 									<p id='calif'>Calificación: {$datos['calificacion']}</p>
-								</div>
-								<button class='votar' id='votar' onclick='votarmas({$_GET['id']})'>+ </button>
-								<button class='votar' id='votar' onclick='votarmenos({$_GET['id']})'>- </button>
+								</div>";
+					$voted = $db->getVotos($_SESSION['id_user'], $datos['id_publi']);
+					if($voted->num_rows>0){
+						$vote = $voted->fetch_assoc();
+						if($vote['tipo_voto']==1){
+							echo "<button class='votar' id='votar' onclick='votar({$_GET['id']}, 1)' disabled>+ </button>
+							</div>";
+						}
+						elseif($vote['tipo_voto']==0){
+							echo "<button class='votar' id='votar' onclick='votar({$_GET['id']}, 0)' disabled>- </button>
+							</div>";
+						}
+						echo "<p id='descPubli'>{$datos['descripcion']}</p>
+							<div id='califPubli'>
+							</div>
+						  </div>";
+					}
+					else{
+						echo "<button class='votar' id='votar' onclick='votar({$_GET['id']}, 1)'>+ </button>
+							<button class='votar' id='votar' onclick='votar({$_GET['id']}, 0)'>- </button>
 							</div>
 							<p id='descPubli'>{$datos['descripcion']}</p>
 							<div id='califPubli'>
 							</div>
 						  </div>";
 					}
+				}
 				else{
 					header("location: index.php");
 				}
@@ -161,6 +179,22 @@ $usuarioQuery = consulta($query);
 	                    }
 	                }
 				}
+			}
+		}
+
+		function votar(id, tipoVoto){
+			ajaxVoto = new XMLHttpRequest();
+			ajaxVoto.open('GET', 'votar.php?id='+id+'&v='+tipoVoto);
+			ajaxVoto.send();
+			ajaxVoto.onreadystatechange = function(){
+                if(ajaxVoto.readyState == 4 && ajaxVoto.status == 200){
+                    if(ajaxVoto.responseText == "VOTED"){
+                        window.location.reload();
+                    }
+                    else{
+                    	alert("Ups... Ocurrió un error al procesar la acción solicitada");
+                    }
+                }
 			}
 		}
 	</script>

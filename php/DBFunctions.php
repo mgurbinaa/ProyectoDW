@@ -93,5 +93,34 @@ class Database{
             return "$query";
         }
     }
+
+    function vote($user, $publi, $voto){
+        $query = "INSERT INTO votos VALUES('{$user}', '{$publi}', '{$voto}');";
+        if($voto == 1){
+            $upd = "UPDATE publicaciones SET calificacion = calificacion + 1 WHERE id_publi = '{$publi}'";
+        }
+        else{
+            $upd = "UPDATE publicaciones SET calificacion = calificacion - 1 WHERE id_publi = '{$publi}'";
+        }
+        $voto = $this->con->query($query);
+        $calf = $this->con->query($upd);
+        if($voto && $upd){
+            return "VOTED";
+        }
+        else{
+            return $calf;
+        }
+    }
+
+    function getVotos($user, $publi){
+        $query = "SELECT * FROM votos WHERE fk_id_user_voto = '{$user}' AND fk_id_publi_voto = '{$publi}';";
+        $vot = $this->con->query($query);
+        if($vot){
+            return $vot;
+        }
+        else{
+            return false;
+        }
+    }
 }
 ?>

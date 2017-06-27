@@ -89,22 +89,46 @@ $usuarioQuery = consulta($query);
 			}
 			if(is_array($resp)){
 				foreach ($resp as $publi) {
-					echo "<div id='modelo'>
-							<div id='foto'>
-								<img src='../src/{$publi['id_publi']}.jpeg' onclick='goToPubli({$publi['id_publi']})'>
-							</div>
-							<div id='datos'>
-								<h3>{$publi['shop']}: {$publi['title']}</h3>
-								<div id='calif'>
-									<h4>{$publi['calificacion']}</h4>
+					$voted = $db->getVotos($_SESSION['id_user'], $publi['id_publi']);
+					if($voted->num_rows>0){
+						$vote = $voted->fetch_assoc();
+						echo "<div id='modelo'>
+								<div id='foto'>
+									<img src='../src/{$publi['id_publi']}.jpeg' onclick='goToPubli({$publi['id_publi']})'>
 								</div>
-							</div>
-					
-							<div id='acciones'>
-								<button class='votar' id='votar' onclick='votarmas({$publi['id_publi']})'>+ </button>
-								<button class='votar' id='votar' onclick='votarmenos({$publi['id_publi']})'>- </button>
-							</div>
-						</div>";
+								<div id='datos'>
+									<h3>{$publi['shop']}: {$publi['title']}</h3>
+									<div id='calif'>
+										<h4>{$publi['calificacion']}</h4>
+									</div>
+								</div>";
+
+						if($vote['tipo_voto']==1){
+							echo "<div id='acciones'>
+									<button class='votar' id='votar' onclick='votar({$publi['id_publi']}, 1)' disabled>+ </button>
+								</div>";
+						}elseif($vote['tipo_voto']==0){
+							echo "<div id='acciones'>
+									<button class='votar' id='votar' onclick='votar({$publi['id_publi']}, 0)' disabled>- </button>
+								</div>";
+						}
+					}else{
+						echo "<div id='modelo'>
+								<div id='foto'>
+									<img src='../src/{$publi['id_publi']}.jpeg' onclick='goToPubli({$publi['id_publi']})'>
+								</div>
+								<div id='datos'>
+									<h3>{$publi['shop']}: {$publi['title']}</h3>
+									<div id='calif'>
+										<h4>{$publi['calificacion']}</h4>
+									</div>
+								</div>";
+						echo "<div id='acciones'>
+								<button class='votar' id='votar' onclick='votar({$publi['id_publi']}, 1)'>+ </button>
+								<button class='votar' id='votar' onclick='votar({$publi['id_publi']}, 0)'>- </button>
+							</div>";
+					}
+					echo "</div>";
 				}
 			}
 		}
@@ -115,6 +139,22 @@ $usuarioQuery = consulta($query);
 	<script>
 		function goToPubli(id){
 			window.location.href = 'vistaPublicacion.php?id='+id;
+		}
+
+		function votar(id, tipoVoto){
+			ajaxVoto = new XMLHttpRequest();
+			ajaxVoto.open('GET', 'votar.php?id='+id+'&v='+tipoVoto);
+			ajaxVoto.send();
+			ajaxVoto.onreadystatechange = function(){
+                if(ajaxVoto.readyState == 4 && ajaxVoto.status == 200){
+                    if(ajaxVoto.responseText == "VOTED"){
+                        window.location.reload();
+                    }
+                    else{
+                    	alert("Ups... Ocurrió un error al procesar la acción solicitada");
+                    }
+                }
+			}
 		}
 		
 	</script>
