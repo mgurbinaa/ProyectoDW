@@ -27,7 +27,6 @@ CREATE TABLE appdesc.publicaciones(
 	title			varchar(70)		NOT NULL,
 	link			varchar(300)	NOT NULL,
 	descripcion		text			NOT NULL,
-	img_publi		varchar(300)	NOT NULL,
 	precio			decimal(5,2)	DEFAULT NULL,
 	calificacion	int(3)			DEFAULT NULL,
 	fecha_creada	date	 		NOT NULL,

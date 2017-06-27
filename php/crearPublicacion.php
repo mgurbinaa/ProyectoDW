@@ -56,25 +56,43 @@ $usuarioQuery = consulta($query);
 			
 	<link rel="stylesheet" type="text/css" href="../css/estilosPublicacion.css">
 		<div id="crearPublicacion">
-		<p>Compartir una nueva oferta</p>
-
-			<form action="cargarImagen.php">
-				
-				<input class="inputCarga" type="text" name="titulo" id="titulo" placeholder="Título">
-				<input class="inputCarga" type="text" name="tienda" id="tienda" placeholder="tienda">
-				<textarea class="textCarga" name="descripcion" id="descripcion" placeholder="Descripción"></textarea>
-				<input class="inputCarga" type="text" id="link" name="link" placeholder="Enlace a la oferta">
-				<input class="inputCarga" type="number" id="precio" name="precio" placeholder="Precio">
-				<input type="date" class="inputCarga" id="fechaExpira">
-				<div id="file">
-				<p>Comparte tu fotografia</p>
-				<input type="file"  name="image" id="imagen" accept="image/jpeg" > 
+			<p>Compartir una nueva oferta</p>
+			<form action="subirPublicacion.php" method="POST" enctype="multipart/form-data">
+				<input class="inputCarga" type="text" name="titulo" id="titulo" placeholder="Título *">
+				<input class="inputCarga" type="text" name="tienda" id="tienda" placeholder="Tienda *">
+				<textarea class="textCarga" name="descripcion" id="descripcion" placeholder="Descripción *"></textarea>
+				<input class="inputCarga" type="text" id="link" name="link" placeholder="Enlace a la oferta *">
+				<input class="inputCarga" type="number" id="precio" name="precio" placeholder="Precio (opcional)">
+				<input type="date" placeholder="Fecha de finalización *" onfocus="(this.type='Fecha de finalización *')" class="inputCarga" id="fechaExpira" name="fechaExpira">
+				<div id="imgn">
+				<p>Comparte una captura de la oferta *</p>
+				<input type="file" name="file" id="imgPubli" accept="image/jpg"> 
 				</div>
-				<input type="submit" value="Enviar Oferta">
-
-				
-
+				<input type="submit" name="send" id="send" onclick="return publicar()" value="Enviar Oferta">
 			</form>
 		</div>
 	</body>
+
+	<script type="text/javascript">
+		function publicar(){
+			titulo = document.getElementById('titulo').value;
+			tienda = document.getElementById('tienda').value;
+			descripcion = document.getElementById('descripcion').value;
+			link = document.getElementById('link').value;
+			precio = document.getElementById('precio').value;
+			fechaEx = document.getElementById('fechaExpira').value;
+			imagen = document.getElementById('imgPubli').value;
+			if(titulo == "" || tienda == "" || descripcion == "" || link == "" || fechaEx == ""){
+				alert("Rellena todos los campos para publicar tu oferta.");
+				return false;
+			}
+			if(imagen==''){
+				alert("Sube una captura de la oferta.");
+				return false;
+			}
+			else{
+				return true;
+			}
+		}
+	</script>
 </html>

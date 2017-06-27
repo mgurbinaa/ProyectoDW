@@ -9,9 +9,9 @@ class Database{
 	}
 
     function getPubliData($idpubli){
-        $query = "SELECT * FROM publicaciones where id_publi = '{$id_publi}'";
+        $query = "SELECT * FROM publicaciones where id_publi = '{$idpubli}'";
         $publi = $this->con->query($query);
-        return $publi->fetch_assoc();
+        return $publi;
     }
 
     function getComments($idpubli){
@@ -45,11 +45,6 @@ class Database{
         }
     }
     
-    function endSession(){
-        session_destroy();
-        header('Location: index.php');
-    }
-    
     function signup($user, $correo, $nombre, $apellido, $password){
         $pass = MD5($password);
         $ins = "INSERT INTO users VALUES(0, '{$user}', '{$correo}', '{$nombre}', '{$apellido}', '{$pass}');";
@@ -70,6 +65,21 @@ class Database{
     function search($words){
         $sel = $this->con->query("SELECT * FROM publicaciones WHERE title LIKE '%{$words}%' OR descripcion LIKE '%{$words}%' ORDER BY calificacion DESC;");
         return $sel;
+    }
+
+    function nuevaPublicacion($titulo, $tienda, $descripcion, $link, $precio, $fechaExpira, $newName, $user){
+        $date = date("Y-m-d");
+        $query = "INSERT INTO publicaciones VALUES (0, '{$tienda}', '{$titulo}', '{$link}', '{$descripcion}', '{$precio}', 0, '{$date}', '{$fechaExpira}', '{$user}', 1);";
+        $ins = $this->con->query($query);
+        if($ins){
+            $sel = "SELECT * FROM publicaciones ORDER BY id_publi DESC";
+            $last = $this->con->query($sel);
+            $id = $last->fetch_assoc();
+            return $id['id_publi'];
+        }
+        else{
+            return "ERROR";
+        }
     }
 }
 ?>

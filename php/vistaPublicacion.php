@@ -64,32 +64,125 @@ $usuarioQuery = consulta($query);
 	
 		<link rel="stylesheet" type="text/css" href="../css/estilosVista.css">
 		<div id="datosPublicacion">
-		
-			<div id='datosPubli'>
-				<h1 id='titulPubli'>TÍTULO</h1>
-				<img src='{$datos['imgPubli']}' id='imgPubli'>
-				<form action='{$datos['link']}' id='oferta'>
-				<button id='precioPubli' disabled>$ PRECIO</button>
-				<button id='linkPubli'>LINK A LA OFERTA</button>
-				</form>
+			<?php
+			require_once("connect.php");
+			require("DBFunctions.php");
+			$con = conectar();
+			$db = new Database($con);
 
-					<div id='califPubli'>
-						<p id='calif'>CALIFICACIÓN</p>
-					</div>
-					<p id='descPubli'>Descripción: </p>
-				</div>
-
-				<div id='comentarios'>
-					<h2 id='noComments'>No hay comentarios aún :(</h2>
-				</div>
-				<div id='comentarios'>
-					<div id='comentario'>
-						<h3 id='usrComment'>Usuario que comenta</h3>
-						<p id='fechaComment'>Fecha del comentario</p>
-						<p id='comment'>Texto del comentario</p>
-					</div>
-				</div>
+			if($_GET['id']){
+				$data = $db->getPubliData($_GET['id']);
+				$datos = $data->fetch_array();
+				if(is_array($datos)){
+					echo "<div id='datosPubli'>
+							<h1 id='titulPubli'>{$datos['shop']}: {$datos['title']}</h1>
+							<form action='{$datos['link']}' id='oferta'>";
+					if(isset($datos['precio'])){
+						echo "<button id='precioPubli' disabled>{$datos['precio']}</button>
+							  <input type='submit' id='linkPubli' value='Ir a la oferta'>";
+					}
+					else{
+						echo "<input id='linkPubli2' type='submit' value='Ir a la oferta'>";
+					}
+					echo "</form>
+							<img src='../src/{$_GET['id']}.jpeg' id='imgPubli'><br><br>
+							<p id='descPubli'>{$datos['descripcion']}</p>
+							<div id='califPubli'>
+							<p id='calif' style='color:red; font-weight:bold'>Calificación: {$datos['calificacion']}</p>
+							</div>
+						  </div>";
+					}
+				else{
+					header("location: index.php");
+				}
+			}
+			else{
+				$datos = $db->getPubliData($_POST['idPubli']);
+				if($datos->num_rows > 0){
+					echo "<div id='datosPubli'>
+							<h1 id='titulPubli'>{$datos['title']}</h1>
+							<form action='{$datos['link']}' id='oferta'>";
+					if(isset($datos['precio'])){
+						echo "<button id='precioPubli' disabled>{$datos['precio']}</button>
+							  <button id='linkPubli'>Ir a la oferta</button>";
+					}
+					else{
+						echo "<button id='linkPubli2'>Ir a la oferta</button>";
+					}
+					echo "</form>
+							<img src='{$datos['imgPubli']}' id='imgPubli'>
+							<div id='califPubli'>
+								<p id='calif'>{$datos['calificacion']}</p>
+							</div>
+							<p id='descPubli'>{$datos['descripcion']}</p>
+						  </div>";
+				}
+				else
+				{
+					header("Location: index.php");
+				}
+			}
+			?>
 		</div>
+
+		<?php
+		if($_GET['id']){
+			$comm = $db->getComments($_GET['id']);
+			$comments = $comm->fetch_array();
+			if(is_array($comments)){
+				$i=0;
+				while ($row = $comments->fetch_assoc()){
+					$resp[$i]=$row;
+					$i++;
+				}
+				if(is_array($resp)){
+					foreach ($resp as $comment){
+						$usr = $db->getUserComment($comment['fk_id_user_comment']);
+						echo "<div id='comentarios'>
+								<div id='comentario'>
+								<h3 id='usrComment'>{$usr['usuario']}</h3>
+								<p id='fechaComment'>{$comment['fecha_comment']}</p>
+								<p id='comment'>{$comment['contenido']}</p>
+							</div>
+						</div>";
+					}
+				}	
+			}else{
+				echo"<div id='comentarios'>
+						<h2 id='noComments'>No hay comentarios aún :(</h2>
+				 	</div>";
+			}
+		}
+		else{
+			$comm = $db->getComments($_POST['idPubli']);
+			$comments = $comm->fetch_array();
+				if(is_array($comments)){
+					$i=0;
+					while ($row = $comments->fetch_assoc()){
+						$resp[$i]=$row;
+						$i++;
+					}
+				}
+				else{
+					echo"<div id='comentarios'>
+							<h2 id='noComments'>No hay comentarios aún :(</h2>
+						 </div>";
+				}
+
+				if(is_array($resp)){
+					foreach ($resp as $comment){
+						$usr = $db->getUserComment($comment['fk_id_user_comment']);
+						echo "<div id='comentarios'>
+								<div id='comentario'>
+									<h3 id='usrComment'>{$usr['usuario']}</h3>
+									<p id='fechaComment'>{$comment['fecha_comment']}</p>
+									<p id='comment'>{$comment['contenido']}</p>
+								</div>
+							  </div>";
+					}
+				}
+			}
+			?>
 	
 
 	</body>

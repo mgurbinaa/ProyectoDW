@@ -20,7 +20,7 @@
     font-size: 20px; /*TAMAÑO DE LA LETRA*/
     font-weight: normal;
     }
-    button{
+    button, #linkPubli{
         float: left;
         width: 40%;
         height: 20px;
@@ -34,12 +34,13 @@
      }
    #imgPubli{
 
-            width: 80%;
+            width: 90%;
             height: 280px;
             float: left;
             position: relative;
             border: 1px solid rgba(0,0,0,.2);
-            margin-left: 10%; 
+            margin-left: 5%; 
+            margin-top: 15px;   
             padding: 5px;
             box-sizing: border-box;
         }
@@ -48,6 +49,8 @@
         width: 90%;
         margin-top: 15px;
         font-size: 15px;
+        margin-left: 5%;
+        margin-right: 10px;
         }
         #comentarios>p{
         float: left;
